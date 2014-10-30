@@ -47,6 +47,6 @@ for (n = 1; n <= 10 ; n++) {
 	System.out.println("Normal hanoi discs " + n + " is moves " + hanoi(n));
 }
 
-for (n=2; n <= 20 ; n = n + 2) {
+for (n=4; n <= 20 ; n = n + 2) {
 	System.out.println("Redux discs " + n + " (i.e. two piles of " + n/2 + ") is moves " + hanoiRedux(n));
 }
