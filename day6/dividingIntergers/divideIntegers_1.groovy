@@ -2,13 +2,15 @@
 
 
 Calculator test = new Calculator();
-test.x = 15;
-test.y = 4;
-int addOutput = test.add();
+
+int addOutput = test.add(15,7);
 System.out.println("I got the integer back: " + addOutput);
-test.subtract();
-test.multiply();
-test.divide()
-test.modulus();
+test.subtract(15,7);
+test.multiply(15,7);
+test.divide(15,7);
+test.modulus(15,7);
+
+
+
 
 
