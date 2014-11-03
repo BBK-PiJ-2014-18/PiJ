@@ -1,29 +1,28 @@
 public class Calculator {
-	private int x;
-	private int y;
+
 	
-	private int add() {
+	private int add(int x, int y) {
 		int result = x + y;
 		System.out.println(x + " + " + y + " = " + result);
 		return result;
 	}
 	
-	private void subtract() {
+	private void subtract(int x, int y) {
 		int result = x - y;
 		System.out.println(x + " - " + y + " = " + result);
 	}
 	
-	private void multiply() {
+	private void multiply(int x, int y) {
 		int result = x * y;
 		System.out.println(x + " * " + y + " = " + result);
 	}
 	
-	private void modulus() {
+	private void modulus(int x, int y) {
 		int result = x % y;
 		System.out.println("The remainder of " + x + " / " + y + " = " + result);
 	}
 
-	private void divide() {
+	private void divide(int x, int y) {
 		double a = (double) x;
 		double b = (double) y;
 		double result = a / b;
