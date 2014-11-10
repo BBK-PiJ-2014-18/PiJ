@@ -3,7 +3,7 @@ public class Target {
 	private int[][][] theSpace;
 	
 	//constructor method
-	private void Target (int x) {
+	public Target (int x) {
 		theSpace = new int[x][x][x];
 	}
 	//set theSpace all zeros apart except for one 1	
