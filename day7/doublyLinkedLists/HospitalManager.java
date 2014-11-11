@@ -39,7 +39,6 @@ public class HospitalManager {
 		System.out.println("There are: " + countRecursive + " patients (recursively)");
 		System.out.println("There are: " + countIterative + " patients (iteratively)");
 
-
 		boolean deleted;
 		deleted = patientListStart.deletePatient(patient8);
 		System.out.println("Jim deleted: " + deleted);
@@ -55,6 +54,21 @@ public class HospitalManager {
 		printPatients();
 
 		// check how long the list is
+		countRecursive = countPatientsRecursive(patientListStart);
+		countIterative = countPatientsIteratively();
+		System.out.println("There are: " + countRecursive + " patients (recursively)");
+		System.out.println("There are: " + countIterative + " patients (iteratively)");
+		
+		//part 5... add a new element to the list... 
+		System.out.println("Adding Dreamer");
+		Patient patientOneLast = new Patient("Dreamer", 11, "Much sleep");
+		patientListStart.addPatient(patientOneLast);
+		//more part 5... and try to delete one that is not on the list
+		Patient patientNotOnList = new Patient("Daisy", 99, "Dimples");
+		deleted = patientListStart.deletePatient(patientNotOnList);
+		System.out.println("Deleted patientNotOnList: " + deleted);
+		//part 6...print both ways one last time
+		printPatients();
 		countRecursive = countPatientsRecursive(patientListStart);
 		countIterative = countPatientsIteratively();
 		System.out.println("There are: " + countRecursive + " patients (recursively)");
@@ -81,9 +95,14 @@ public class HospitalManager {
 		return result;
 	}
 
-
-
 	private void printPatients() {
+		System.out.println("PRINTING FORWARDS....");
+		printPatientsForwards();
+		System.out.println("PRINTING BACKWARDS....");
+		printPatientsBackwards();
+	}
+
+	private void printPatientsForwards() {
 		Patient printThisPatient = patientListStart;
 		Patient nextPatient;
 		do { 
@@ -98,6 +117,20 @@ public class HospitalManager {
 		} while (nextPatient != null);
 	}
 
+	private void printPatientsBackwards() {
+		Patient thisPatient = patientListStart;
+		Patient nextPatient;
+		do {
+			nextPatient = thisPatient.getNextPatient();
+			thisPatient = nextPatient;
+		}	while (nextPatient.getNextPatient() != null);
+		Patient previousPatient;
+		do {
+			System.out.println("NAME: " + thisPatient.getName());
+			previousPatient = thisPatient.getPreviousPatient();
+			thisPatient = previousPatient;
+		} while (thisPatient != null);	
+	}
 }
 
 
