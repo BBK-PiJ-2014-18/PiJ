@@ -1,5 +1,4 @@
-Target test = new Target();
-test.Target(10);
+Target test = new Target(10);
 boolean play = true;
 while (play) {
 	test.init();
