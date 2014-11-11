@@ -33,6 +33,19 @@ public class HospitalManager {
 
 		printPatients();
 
+		boolean deleted;
+		deleted = patientListStart.deletePatient(patient8);
+		System.out.println("Jim deleted: " + deleted);
+		printPatients();
+		deleted = patientListStart.deletePatient(anotherPatient);
+		System.out.println("Jane deleted: " + deleted);
+		printPatients();
+
+		// now try and delete first one by point patientListStart at one along chain...
+		System.out.println("Deleting first patient John, by updating pointer");
+		patientListStart = patientListStart.getNextPatient();
+		printPatients();
+
 	}
 
 	private void printPatients() {
