@@ -12,21 +12,17 @@ public class ListUtilities {
 
 	//Sort a list of integers
 	public static Node bubbleSort(Node firstNode) {
-	
 		
-		//if first node > second node => swap them.
-		if(firstNode.getTheNumber() > firstNode.getNextNode().getTheNumber()) {
-		
-		
-			int temp = firstNode.getTheNumber();
-			firstNode.setTheNumber(firstNode.getNextNode().getTheNumber());
-			firstNode.getNextNode().setTheNumber(temp);
-
-			
-		}	
-			
-		
-
+		Node currentNode = firstNode;
+		while (currentNode.getNextNode() != null) {	
+			Node nextNode = currentNode.getNextNode();
+			if(currentNode.getTheNumber() > nextNode.getTheNumber()) {
+				int temp = currentNode.getTheNumber();
+				currentNode.setTheNumber(nextNode.getTheNumber());
+				nextNode.setTheNumber(temp);
+			}		
+		currentNode = nextNode;
+		}
 	return firstNode;
 	}
 

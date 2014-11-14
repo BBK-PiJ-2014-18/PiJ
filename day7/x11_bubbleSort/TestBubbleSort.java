@@ -7,10 +7,9 @@ public class TestBubbleSort {
 		test.launch();
 	}
 	
-	
 	private void launch() {
 		//set an array
-		int[] intArray = {20, 10, 30, 40, 50, 60, 70, 80, 90};				
+		int[] intArray = {20, 90, 30, 40, 50, 60, 70, 75, 80};				
 		//make the list
 		listStart = ListUtilities.intArrayToList(intArray);		
 		//print the list 
@@ -21,8 +20,5 @@ public class TestBubbleSort {
 		//print the list 
 		System.out.println("After sorting: ");
 		listStart.printList();
-	
-	
 	}
-	
 }	

@@ -19,12 +19,9 @@ public class Node {
 	
 	
 	//setters
-	
 	public void setTheNumber(int theNumber) {
 		this.theNumber = theNumber;
 	}
-	
-	
 	
 	//add a node
 	public void addNode(Node newNode) {
@@ -44,7 +41,6 @@ public class Node {
 		} while(currentNode!= null);
 		System.out.println();
 	}
-	
 	
 }	
 	
