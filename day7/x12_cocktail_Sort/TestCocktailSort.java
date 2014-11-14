@@ -9,7 +9,7 @@ public class TestCocktailSort {
 	
 	private void launch() {
 		//set an array
-		int[] intArray = {100, 90, 30, 40, 99, 60, 35, 10, 75, 80};				
+		int[] intArray = {99, 11, 12, 100, 90, 30, 40, 99, 60, 35, 10, 75, 11, 2, 1};				
 		//make the list
 		listStart = ListUtilities.intArrayToDoubleLinkList(intArray);		
 		//print the list 

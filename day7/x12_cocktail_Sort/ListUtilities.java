@@ -26,9 +26,10 @@ public class ListUtilities {
 		boolean done = false;
 			DoubleLinkNode currentNode;
 			DoubleLinkNode nextNode;
-		
+			DoubleLinkNode previousNode;
+			
 			while (!done) {
-				//start from first note (the start of list)
+				//start from first node (the start of list)
 				currentNode = firstNode;
 				// move the biggest number to the end
 				while (currentNode.getNextNode() != null) {	
@@ -41,6 +42,20 @@ public class ListUtilities {
 					}
 					currentNode = nextNode;
 				}
+				
+				//start from last node (the end of list).. 
+				//(which is where we already are with current node)
+				
+				while(currentNode.getPreviousNode() != null) {
+					previousNode = currentNode.getPreviousNode();
+					if(currentNode.getTheNumber() < previousNode.getTheNumber()) {
+						int temp = currentNode.getTheNumber();
+						currentNode.setTheNumber(previousNode.getTheNumber());
+						previousNode.setTheNumber(temp);
+					}
+					currentNode = previousNode;
+				}
+				
 				//check if list is in order...
 				currentNode = firstNode;
 				done = true;
