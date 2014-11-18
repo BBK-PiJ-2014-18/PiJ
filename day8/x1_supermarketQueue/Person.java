@@ -4,16 +4,21 @@
 
 public class Person {
 
-	public String name;
-	public int age;
-	public Person nextPerson;
+	private String name;
+	private int age;
+	private Person nextPerson;
 
-	//constructor
+	//constructors
 	public Person (String name, int age) {
 		this.name = name;
 		this.age = age;
 		this.nextPerson = null;
 	}
+	
+	public Person() {
+		this.nextPerson = null;
+	}	
+		
 	
 	//getters
 	public String getName() {
@@ -24,7 +29,7 @@ public class Person {
 		return age;
 	}		
 
-	public Person getPerson() {	
+	public Person getNextPerson() {	
 		return nextPerson;
 	}
 	
