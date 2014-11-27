@@ -24,15 +24,12 @@ public class UnfairQueue implements PersonQueue {
 		}
 		result = firstPerson.getNextPerson();
 		currentPerson = result;
- 		while(currentPerson.getNextPerson() != null) {		
+ 		while(currentPerson != null) {		
 			if (currentPerson.getAge() > result.getAge()) {
 				result = currentPerson;
 			}			
 			currentPerson = currentPerson.getNextPerson();	
 		}
-		if(currentPerson.getAge() > result.getAge()) {
-			result = currentPerson;
-		}	
 		currentPerson = firstPerson;
 		boolean done = false;
 		while(!done && !currentPerson.getNextPerson().equals(null)) {
