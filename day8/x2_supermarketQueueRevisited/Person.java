@@ -6,21 +6,19 @@ public class Person {
 
 	private String name;
 	private int age;
-
+	private Person nextPerson;
 
 	//constructors
 	public Person (String name, int age) {
 		this.name = name;
 		this.age = age;
+		this.nextPerson = null;
 	}
-
-	public Person () {
-		this.name = null;
-	}
-
-
-
-			
+	
+	public Person() {
+		this.nextPerson = null;
+	}	
+		
 	//getters
 	public String getName() {
 		return name;
@@ -30,13 +28,12 @@ public class Person {
 		return age;
 	}		
 
-	//setters
-	public void setName(String name) {
-		this.name = name;
-	}
-	public void setAge(int age) {
-		this.age = age;	
+	public Person getNextPerson() {	
+		return nextPerson;
 	}
 	
-			
+	//setter
+	public void setNextPerson(Person person) {
+		this.nextPerson = person;
+	}		
 }	

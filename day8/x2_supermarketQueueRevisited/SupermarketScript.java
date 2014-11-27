@@ -18,9 +18,6 @@ public class SupermarketScript {
 		Person toServe = tesco.servePerson();
 		System.out.println("Serving: " + toServe.getName());
 
-
-
-
 		System.out.println("adding cathy and tom");
 		Person ck = new Person("Cathy", 90);
 		tesco.addPerson(ck);
