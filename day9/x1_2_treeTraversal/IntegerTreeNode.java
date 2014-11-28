@@ -85,4 +85,22 @@ public class IntegerTreeNode {
 		result = result + "]";		
 		return result;
 	}
+
+
+	public String toSimpleString() {
+	
+		String result = "";
+		result = result + "[" + Integer.toString(this.value) + "";
+		if(this.left != null) {
+			result = result + " " + this.left.toSimpleString();
+		}	
+		if(this.right != null) {
+			result = result + this.right.toSimpleString();
+		}	
+		result = result + "]";		
+		return result;
+	}
+
+
+
 }

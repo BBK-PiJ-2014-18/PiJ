@@ -26,9 +26,17 @@ public class IntegerTreeNodeScript {
 		System.out.println("Min is: " + itn.getMin());
 
 		// print out the tree
-		System.out.println("=== THE TREE ===");
-		
+
+		System.out.println("=== COMPLEX TREE ===");
+		System.out.println();
 		System.out.println(itn.toString());
+		System.out.println();
+		System.out.println("=== SIMPLE TREE ===");
+		System.out.println(itn.toSimpleString());
+		System.out.println();
+
+		
+		
 	}	
 
 
