@@ -65,21 +65,22 @@ public class IntegerTreeNode {
 		}	
 	}
 
-	public String toAString() {
+	@Override
+	public String toString() {
 	
 		String result;
 		result = "";
-		result = result + Integer.toString(this.value) + " ";
+		result = result + "[" + Integer.toString(this.value) + " ";
 		
 		if(this.left == null) {
 			result = result + "L[]";
 		} else {
-			result = result + "L[" + this.left.toAString();
+			result = result + "L" + this.left.toString();
 		}	
 		if(this.right == null) {
 			result = result + " R[]";
 		} else {
-			result = result + " R[" + this.right.toAString();
+			result = result + " R" + this.right.toString();
 		}	
 		result = result + "]";		
 		return result;

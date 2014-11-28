@@ -28,7 +28,7 @@ public class IntegerTreeNodeScript {
 		// print out the tree
 		System.out.println("=== THE TREE ===");
 		
-		System.out.println(itn.toAString());
+		System.out.println(itn.toString());
 	}	
 
 
