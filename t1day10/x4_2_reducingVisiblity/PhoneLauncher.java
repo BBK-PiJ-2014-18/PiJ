@@ -1,0 +1,41 @@
+public class PhoneLauncher {
+
+	public static void main (String[] args) {
+		PhoneLauncher launcher = new PhoneLauncher();
+		launcher.launch();
+	}
+	
+	public void launch() {
+	
+		SmartPhone sp = new SmartPhone("nokia");
+		System.out.println("Launcher says+++> sp.call not 00");
+		sp.call("1234");
+		System.out.println("Launcher says+++> sp.call WITH 00");
+		sp.call("001234");
+
+		System.out.println("Launcher says+++> sp.browseWeb");
+		sp.browseWeb("BBC");
+		System.out.println("Launcher says+++> sp.ringAlarm");
+		sp.ringAlarm("time for school");
+		System.out.println("Launcher says+++> sp.printLastNumbers");		
+		sp.printLastNumbers();
+		System.out.println();
+		System.out.println("=== X3 ====");
+		System.out.println();
+		System.out.println("Launcher says+++> sp.getBrand (a method in OldPhone)");	
+		System.out.println("Brand is: " + sp.getBrand());
+		// increasing visibility
+		System.out.println();
+		System.out.println("=== X4.1 ====");
+		System.out.println();
+		sp.playGame("CRUSH");
+		System.out.println();
+		System.out.println("=== X4.2 ====");
+		System.out.println();		
+		RestrictedSmartPhone rsp = new RestrictedSmartPhone("NOKIA RSP");
+		rsp.playGame("nogamesherekid");
+		System.out.println();
+	
+	}
+	
+}	
