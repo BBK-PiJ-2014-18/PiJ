@@ -52,9 +52,12 @@ public class SmartPhoneScript {
 		mySmartPhone.ringAlarm("wk 11 alarm");
 		System.out.println();
 	
-		// for 2.3 and then 2.4
+		// for 2.3 
 		testPhone1(myPhone);
+		// for 2.4 and 2.5
 		testPhone2(myPhone);
+		// for 2.5
+		testPhone2(
 	}
 
 //	2.3 INDIRECT UPCASTING when calling a method
@@ -75,7 +78,7 @@ public class SmartPhoneScript {
 		System.out.println();
 	}
 
-//	2.4	and then DOWNCASTING within the method so can use all methods
+//	2.4/2.5	and then DOWNCASTING within the method so can use all methods
 
 	public void testPhone2(Phone p) {
 		
