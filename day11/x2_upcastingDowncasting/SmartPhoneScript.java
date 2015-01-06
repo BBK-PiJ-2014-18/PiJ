@@ -52,16 +52,19 @@ public class SmartPhoneScript {
 		mySmartPhone.ringAlarm("wk 11 alarm");
 		System.out.println();
 	
+		// for 2.3 and then 2.4
+		testPhone1(myPhone);
+		testPhone2(myPhone);
+	}
+
 //	2.3 INDIRECT UPCASTING when calling a method
 
-		testPhone1(myPhone);
-	}
 
 //	will only do call(), which is the only one in the interface Phone	
 	public void testPhone1(Phone p) {
 		
 		System.out.println("=== 2.3 Start ===");
-		System.out.println("Brand: " + p.getBrand());
+//		System.out.println("Brand: " + p.getBrand());
 //		p.browseWeb("Page to browse");
 //		System.out.println(p.findPosition());
 		p.call("1234");
@@ -71,6 +74,25 @@ public class SmartPhoneScript {
 //		p.ringAlarm("wk 11 alarm");
 		System.out.println();
 	}
+
+//	2.4	and then DOWNCASTING within the method so can use all methods
+
+	public void testPhone2(Phone p) {
+		
+		System.out.println("=== 2.4 Start ===");
+		SmartPhone sp = (SmartPhone) p;
+		System.out.println("Brand: " + sp.getBrand());
+		sp.browseWeb("Page to browse");
+		System.out.println(sp.findPosition());
+		sp.call("1234");
+		sp.printLastNumbers();
+		sp.call("001234");
+		sp.playGame("wk 11 game");
+		sp.ringAlarm("wk 11 alarm");
+		System.out.println();
+	}
+
+
 
 }
 
