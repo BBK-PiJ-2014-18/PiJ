@@ -51,10 +51,29 @@ public class SmartPhoneScript {
 		mySmartPhone.playGame("wk 11 game");
 		mySmartPhone.ringAlarm("wk 11 alarm");
 		System.out.println();
+	
+//	2.3 INDIRECT UPCASTING when calling a method
+
+		testPhone1(myPhone);
 	}
-	
-	
+
+//	will only do call(), which is the only one in the interface Phone	
+	public void testPhone1(Phone p) {
+		
+		System.out.println("=== 2.3 Start ===");
+		System.out.println("Brand: " + p.getBrand());
+//		p.browseWeb("Page to browse");
+//		System.out.println(p.findPosition());
+		p.call("1234");
+//		p.printLastNumbers();
+		p.call("001234");
+//		p.playGame("wk 11 game");
+//		p.ringAlarm("wk 11 alarm");
+		System.out.println();
+	}
+
 }
+
 
 
 
