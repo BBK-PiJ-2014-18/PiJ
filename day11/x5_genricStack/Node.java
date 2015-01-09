@@ -1,6 +1,6 @@
-public class Node {
+public class Node <N> {
 
-	private int value;
+	private N value;
 	private Node next;
 	
 	//constructors...
@@ -9,14 +9,14 @@ public class Node {
 		this.next = null;
 	}	
 	
-	public Node (int value) {
+	public Node (N value) {
 		this.value = value;
 		this.next = null;
 	}		
 	
 	// push, pop and isEmpty...
 	
-	public void push (int value) {
+	public void push (N value) {
 		Node addNode = new Node(value);
 		if(this.isEmpty()) {
 			this.next = addNode;
@@ -26,13 +26,13 @@ public class Node {
 		}
 	}	
 	
-	public int pop () {
+	public N pop () {
 		if(this.next.next == null) {
-			int result = this.next.value;
+			N result = (N) this.next.value;
 			this.next = null;
 			return result;
 		} else {
-			return this.next.pop();
+			return (N) this.next.pop();
 		}
 	}
 	
