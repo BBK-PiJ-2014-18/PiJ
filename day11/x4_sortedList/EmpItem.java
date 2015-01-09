@@ -23,13 +23,17 @@ public class EmpItem<T>  {
 	}
 
 	//setters
+	public void setItem(T item) {
+		this.item = item;
+	}	
+	
 	public void setPrevious(EmpItem previous) {
 		this.previous = previous;
 	}	
 
 	public void setNext(EmpItem next) {
 		this.next = next;
-	}	
+	}
 
 
 

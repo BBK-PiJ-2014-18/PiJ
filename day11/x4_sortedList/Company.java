@@ -6,10 +6,14 @@ public class Company  {
 	} 
 
 	public void launch() {
-		EmpItem<String> empNames = new SortedEmpItem<String>("Mark");
-		empNames.add("Anna");
-		empNames.add("Ellie");
-		empNames.add("John");
+		EmpItem<String> empNames = new SortedEmpItem<String>("eee");
+		empNames.add("bbb");
+		empNames.add("xxx");
+		empNames.add("aaa");
+		empNames.add("ddd");
+		empNames.add("ccc");
+		empNames.add("yyy");
+		empNames.add("zzz");
 		System.out.println();
 		System.out.println("=== PRINTING FORWARDS ===");
 		empNames.printForwards();
@@ -29,7 +33,7 @@ public class Company  {
 		empNums.printBackwards();
 		
 		System.out.println();
-		System.out.println("!!!      DELETE ANNA/2     !!!");
+/*		System.out.println("!!!      DELETE ANNA/2     !!!");
 		empNames.delete("Anna");
 		empNums.delete(2);
 
@@ -46,7 +50,7 @@ public class Company  {
 		System.out.println("=== PRINTING BACKWARDS ===");
 		empNums.printBackwards();
 		
-		
+*/		
 		System.out.println();
 	}
 
