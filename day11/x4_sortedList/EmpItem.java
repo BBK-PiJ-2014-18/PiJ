@@ -35,8 +35,6 @@ public class EmpItem<T>  {
 		this.next = next;
 	}
 
-
-
 	//add an EmpItem to list
 	public void add(T itemToAdd) {
 		System.out.println("THIS IS OVERWRITTEN SO DONT PRINT THIS - i hope/think");

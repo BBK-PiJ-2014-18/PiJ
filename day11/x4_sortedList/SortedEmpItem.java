@@ -67,35 +67,27 @@ public class SortedEmpItem <T> extends EmpItem <T> {
 	}
 	
 	private boolean greaterThan(T nextItem, T insertItem) {
-		String nextString = (String) nextItem;
-		String insertString = (String) insertItem;
-		int compare = nextString.compareTo(insertString);
-		if(compare < 0) {
-			return false;
+		String nextString = nextItem.toString();
+		String insertString = insertItem.toString();
+		boolean isNumber = true;
+		for (int i = 0; i < nextString.length(); i++) {
+			if (!Character.isDigit(nextString.charAt(i))) {
+				isNumber = false;
+			}	
+		}
+		if(isNumber) {
+			if(Integer.parseInt(nextString) > Integer.parseInt(insertString)) {
+				return true;
+			} else {
+				return false;
+			}		
 		} else {
-			return true;
-		}		
+			int compare = nextString.compareTo(insertString);
+			if(compare < 0) {
+				return false;
+			} else {
+				return true;
+			}		
+		}
 	}
-
-/*	
-	private boolean greaterThan(String nextItem, String insertItem) {
-		int compare = nextString.compareTo(insertString);
-		if(compare < 0) {
-			return false;
-		} else {
-			return true;
-		}		
-	}
-	
-	private boolean greaterThan(int nextItem, int insertItem) {	
-		if(nextItem < insertItem) {
-			return false;
-		} else {
-			return true;
-		}		
-	}
-	
-*/
-
-	
 }
