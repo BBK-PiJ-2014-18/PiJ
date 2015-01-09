@@ -6,8 +6,8 @@ public class GenericStackScript {
 		gsc.launch1();
 		//use Doubles
 		gsc.launch2();
-		//use Strings
-		gsc.launch3();
+		//use Strings - so won't compile:
+//		gsc.launch3();
 		
 	}
 	
@@ -131,7 +131,9 @@ public class GenericStackScript {
 		System.out.println("=== END ===");
 	}
 
-	public void launch3() {
+
+//	launch3() means class will not compile as Node types restricted to numbers
+/*	public void launch3() {
 	
 		Node<String> gs1 = new <String>Node();
 		gs1.push("one");
@@ -145,7 +147,7 @@ public class GenericStackScript {
 			
 		System.out.println("=== END ===");
 	}
-
+*/
 
 
 }

@@ -1,4 +1,4 @@
-public class Node <N> {
+public class Node <N extends Number> {
 
 	private N value;
 	private Node next;
