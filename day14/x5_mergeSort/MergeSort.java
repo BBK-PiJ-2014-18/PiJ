@@ -40,30 +40,33 @@ public class MergeSort {
 		sort(front);
 		sort(back);
 		//integration
-		int fc = 0;
-		int bc = 0;
-		int j = 0;
-		while(fc < front.size() && bc < back.size()) {
-			if(front.get(fc) < back.get(bc)) {
-				int z = (int) front.get(fc);
-				list.set(j,z);			
-				fc++;
+		int frontCount = 0;
+		int backCount = 0;
+		int buildListIndex = 0;
+		while(frontCount < front.size() && backCount < back.size()) {
+			if(front.get(frontCount) < back.get(backCount)) {
+				int z = (int) front.get(frontCount);
+				list.set(buildListIndex,z);			
+				frontCount++;
 			} else {
-				int z = (int) back.get(bc);
-				list.set(j,z);
-				bc++;
+				int z = (int) back.get(backCount);
+				list.set(buildListIndex,z);
+				backCount++;
 			}			
-			j++;
+			buildListIndex++;
 		}
-		for (int i = fc ; i < front.size(); i++) {
-				int z = (int) front.get(i);
-				list.set(j, z);
-				j++;
+		
+		while(frontCount < front.size()) {
+				int z = (int) front.get(frontCount);
+				list.set(buildListIndex, z);
+				frontCount++;
+				buildListIndex++;
 		}
-		for (int i = bc ; i < back.size(); i++) {
-				int z = (int) back.get(i);
-				list.set(j,z);
-				j++;				
+		while(backCount < back.size()) {
+				int z = (int) back.get(backCount);
+				list.set(buildListIndex,z);
+				backCount++;
+				buildListIndex++;				
 		}
 		return list;
 	}
