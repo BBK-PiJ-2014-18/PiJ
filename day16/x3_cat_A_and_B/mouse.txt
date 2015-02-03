@@ -1,0 +1,7 @@
+This is some text to print out
+mouse
+Line One
+Line TWO
+Line Three
+THE END
+Bye!!

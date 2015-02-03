@@ -1,0 +1,7 @@
+This is some text to print out
+RAT
+Line ONE
+Line TWO
+Line Three
+THE END
+Bye!!
