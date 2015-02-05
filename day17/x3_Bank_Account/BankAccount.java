@@ -1,5 +1,5 @@
 
-// um, need to synchronize all 3 methods??	
+// um, need to synchronize all 3 methods?????	
 
 //	- could get wrong balance?
 // could add the money to someone ele's balance?
