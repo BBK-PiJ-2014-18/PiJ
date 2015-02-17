@@ -23,15 +23,21 @@ public class SelfSortingListScript {
 		boolean done = false;
 		while(!done) {
 		
-			System.out.println("Enter(or q): ");
+			System.out.println("Enter(or q) - or f for fifth: ");
 			String str = System.console().readLine();
 			System.out.println();
-			if(!str.equals("q")) {
-				int i = Integer.parseInt(str);
-				ssl.add(i);
-			} else {
-				done = true;
-				ssl.setStop(true);
+			if(str.equals("f")) {
+				System.out.print("getting fifth");
+				int fifth = ssl.get(5);
+				System.out.println("fifth is: " + fifth);
+			}	else {
+				if(!str.equals("q")) {
+					int i = Integer.parseInt(str);
+					ssl.add(i);
+				} else {
+					done = true;
+					ssl.setStop(true);
+				}
 			}
 		}			
 	}

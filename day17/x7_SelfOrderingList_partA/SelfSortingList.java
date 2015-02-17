@@ -31,6 +31,30 @@ public class SelfSortingList {
 		sorter.setSorted(false);
 	}
 	
+	public int get(int place) {
+		return sorter.get(place);
+	}
+	
+	public int getPlace(int place) {
+		int count = 0;
+		Node runner;
+		if(head.getNextNode() != null) {
+			runner = head.getNextNode();
+		} else {
+			return -1;
+		}
+		while(runner.getNextNode() !=null) {
+			if (count == place) {
+				return runner.getItem();
+			}	
+			runner = runner.getNextNode();	
+			count ++;
+		}
+		return -1;
+	}
+	
+	
+	
 	public void printList() {
 		Node runner;
 		if(head.getNextNode() != null) {

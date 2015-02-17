@@ -40,6 +40,19 @@ public class Sorter implements Runnable {
 			}
 		}	
 	}
+	
+	
+	public synchronized int get(int place) {
+		while (!sorted) {
+			try {	
+				wait();
+			} catch(InterruptedException ex) {
+				// do nothing
+			}	
+		}		
+		return ssl.getPlace(place);	
+	}
+	
 }
 
 
