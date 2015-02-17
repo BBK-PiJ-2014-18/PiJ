@@ -25,15 +25,14 @@ public class SelfSortingListScript {
 		
 			System.out.println("Enter(or q): ");
 			String str = System.console().readLine();
+			System.out.println();
 			if(!str.equals("q")) {
 				int i = Integer.parseInt(str);
 				ssl.add(i);
 			} else {
 				done = true;
 				ssl.setStop(true);
-
 			}
-			ssl.printList();		
 		}			
 	}
 }	

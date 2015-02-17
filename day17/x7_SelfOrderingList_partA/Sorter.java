@@ -10,34 +10,46 @@ public class Sorter implements Runnable {
 		this.ssl = ssl; 
 	}	
 
-	public void setSorted(boolean sorted) {
-		sorted = sorted;
+	public synchronized void setSorted(boolean sorted) {
+		this.sorted = sorted;
+		notifyAll();
 	}	
 
 	@Override
-	public void run() {
-		synchronized(obj) {			
-			while(!ssl.getStop()) {
-				miniSort();
-				try {
-					Thread.sleep(2000);
-				} catch (InterruptedException ex) {
+	public synchronized void run() {
+		while(!ssl.getStop() || !sorted) {					
+			// once sorted is true, wait here...
+			while(sorted) {
+				System.out.println("|");
+				try {	
+					wait();
+				} catch(InterruptedException ex) {
 					// do nothing
-				}
-			} 
-		}
-	}
-	
-	public void miniSort() {
-		System.out.print(".");
-		boolean allInOrder = ssl.sort();
-
-		if (allInOrder) {
-			System.out.println("XXX");
-			sorted = true;
+				}	
+			}	
+			// guarded block...
+			System.out.print(".");
+			boolean allInOrder = ssl.sort();
+			if (allInOrder) {
+				sorted = true;
+			}	
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException ex) {
+				// do nothing
+			}
 		}	
 	}
 }
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,9 +1,7 @@
 public class SelfSortingList { 
 
 	private Sorter sorter;
-
 	private Node head;
-	
 	private boolean stop;
 	
 	public SelfSortingList () {
@@ -16,6 +14,7 @@ public class SelfSortingList {
 			
 	public void setStop(boolean stop) {
 		this.stop = stop;
+		sorter.setSorted(false);
 	}			
 			
 	public boolean getStop() {
@@ -30,7 +29,6 @@ public class SelfSortingList {
 		}
 		currentNode.setNextNode(newNode);
 		sorter.setSorted(false);
-		
 	}
 	
 	public void printList() {
@@ -55,8 +53,9 @@ public class SelfSortingList {
 		} else {
 			return true;
 		}
+		//do a little bit of sorting
 		int count = 0;
-		while(runner.getNextNode() !=null && count < 3) {
+		while(runner.getNextNode() != null && count < 3) {
 			if(runner.getItem() > runner.getNextNode().getItem()) {
 				int temp = runner.getItem();
 				runner.setItem(runner.getNextNode().getItem());
@@ -65,7 +64,17 @@ public class SelfSortingList {
 			}
 			runner = runner.getNextNode();
 		}
-		if(count < 3) {
+		//check if list is sorted
+		boolean done = true;
+		runner = head.getNextNode();
+		while(runner.getNextNode() != null) {
+			if(runner.getItem() > runner.getNextNode().getItem()) {
+				done = false;
+			}
+			runner = runner.getNextNode();
+		}
+		printList();
+		if(done) {
 			return true;
 		}
 		return false;	
@@ -104,6 +113,3 @@ class Node {
 		return item;
 	}	
 }	
-
-
-
