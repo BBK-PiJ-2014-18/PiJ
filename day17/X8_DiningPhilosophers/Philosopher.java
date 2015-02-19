@@ -30,6 +30,7 @@ public class Philosopher implements Runnable {
 		}
 		System.out.println("  <-- P" + id + " ate " + food + ".  Full now.");
 	}	
+	
 }
 
 

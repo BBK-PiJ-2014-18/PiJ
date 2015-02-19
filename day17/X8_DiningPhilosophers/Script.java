@@ -11,10 +11,6 @@ public class Script {
 		Table table = new Table(size);
 	}
 
-	
-	
-
-
 }
 
 
