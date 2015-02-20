@@ -25,7 +25,7 @@ public class MobilePhone extends OldPhone {
 	
 	public void printLastNumbers() {
 	
-		System.out.println("=== LAST 10 NUMBERS (from MobilePhone) ===");
+		System.out.println("== LAST 10 NUMBERS (from MobilePhone) ==");
 		System.out.println(" 1: " + lastNumber);  	
 	
 	}
