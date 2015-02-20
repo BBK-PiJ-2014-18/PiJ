@@ -41,6 +41,6 @@ public class AdultPerson implements Person {
 		} 
 	}
 
-// ...other methods, including constructors, come here.. 
+// ...other methods, including constructors, come here... 
 */
 }
