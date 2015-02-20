@@ -11,7 +11,7 @@ public class Ls {
 		File dir = new File(".");
 		String[] outputArray = dir.list();
 		for (int i = 0; i < outputArray.length; i++) {
-			System.out.println("> " + outputArray[i]);
+			System.out.println(">> " + outputArray[i]);
 		}
 	}
 }
