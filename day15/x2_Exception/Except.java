@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Exception {
+public class Except {
 
 
 	public static void main(String[] args) {
-		Exception e = new Exception();
+		Except e = new Except();
 		e.launch();
 	}
 
@@ -26,18 +26,18 @@ public class Exception {
 			int result2 = list.get(77);		
 		
 		
-//		} catch (Exception e) {
+//		} catch (Exception ex) {
 //			System.out.println("Exception Hi");
 //			ex.printStackTrace();
 		} catch (NullPointerException ex) {
 			System.out.println("Null Pointer Hi");
 			ex.printStackTrace();
-		} catch (IndexOutOfBoundsException ex) {
-			System.out.println("Index OOBE Hi");
-			ex.printStackTrace();
-//		} catch (Exception ex) {
-//			System.out.println("Exception Hi");
+//		} catch (IndexOutOfBoundsException ex) {
+//			System.out.println("Index OOBE Hi");
 //			ex.printStackTrace();
+		} catch (Exception ex) {
+			System.out.println("Exception Hi");
+			ex.printStackTrace();
 		}		
 		
 	}
