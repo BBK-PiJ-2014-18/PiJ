@@ -16,8 +16,7 @@ public class ResponsiveUI {
 		for (int id = 0; id < 10 ; id++) {
 			int wait = inputWait(id);
 			task = new Task(id, wait, doneList);
-			Thread t = new Thread(task);
-			me.execute(t);
+			me.execute(task);
 			printDone(doneList);
 		}
 		//pick up tasks ending after all 10 durations have been entered. 
