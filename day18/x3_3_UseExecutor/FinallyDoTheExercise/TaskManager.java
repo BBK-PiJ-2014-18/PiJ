@@ -3,8 +3,8 @@ import java.util.Queue;
 
 public class TaskManager implements Runnable {
 
-	private static final int MAX_THREADS = 2;
-	private static final int TOTAL_TASKS_TO_COMPLETE = 10;
+	private static final int MAX_THREADS = 4;
+	private static final int TOTAL_TASKS_TO_COMPLETE = 20;
 
 	private Queue<Runnable> taskQueue;
 	private boolean running;
@@ -59,6 +59,7 @@ public class TaskManager implements Runnable {
 		Thread t = new Thread(wrappedTask);
 		this.threadPool[id] = t;
 		t.start();
+	
 	}
 	
 	
