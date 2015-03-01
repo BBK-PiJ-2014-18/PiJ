@@ -1,28 +1,34 @@
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Executor;
+
+//import static java.util.concurrent.TimeUnit.*;
+
 public class Script {
 
+	public static final int TIME_USER_WILL_WAIT = 4000;
+	public static final int NUMBER_OF_USERS = 4;
 
 	public static void main (String[] args) {
 		Script s = new Script();
 		s.launch();
 	}
 
-
 	private void launch() {
-	
-		SimpleExecutor me = new SimpleExecutorImpl();
 
-			
-		Runnable user1 = new User(me, 1);
-		Thread t1 = new Thread(user1);
-		t1.start();
+		SimpleExecutor taskExecutor = new SimpleExecutorImpl();
 
-		Runnable user2 = new User(me, 2);
-		Thread t2 = new Thread(user2);
-		t2.start();
+		ScheduledExecutorService userExecutor = Executors.newScheduledThreadPool(5);
 
-	
+		for (int userID = 0; userID < NUMBER_OF_USERS; userID++) {
+			Runnable r = new User(taskExecutor, userID, TIME_USER_WILL_WAIT);
+			userExecutor.execute(r);
+		}
+
+		userExecutor.shutdown();	
+
 	}
-
-
 	
 }
+
+

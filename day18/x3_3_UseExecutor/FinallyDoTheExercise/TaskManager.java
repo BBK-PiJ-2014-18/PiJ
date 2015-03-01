@@ -3,13 +3,15 @@ import java.util.Queue;
 
 public class TaskManager implements Runnable {
 
-	private static final int MAX_THREADS = 4;
-	private static final int TOTAL_TASKS_TO_COMPLETE = 20;
+	private static final int MAX_THREADS = 10;
+	private static final int TOTAL_TASKS_TO_COMPLETE = 400;
 
 	private Queue<Runnable> taskQueue;
 	private boolean running;
 	private Thread[] threadPool;
 	private int taskCount;
+	private static int maxWaitingTime;
+
 
 	public TaskManager() {
 		this.taskQueue = new LinkedList<Runnable>();
@@ -18,17 +20,28 @@ public class TaskManager implements Runnable {
 			threadPool[i] = null;
 		}	
 		this.running = true;
+		this.taskCount = 0;
+		this.maxWaitingTime = 0;
 	}	
+	
+	
+	public int getMaxWaitingTime() {
+		return maxWaitingTime;
+	}
 	
 	public void add(Runnable task) {	
 		if(running) {
-			this.taskQueue.offer(task);
+			synchronized(taskQueue) {				
+				this.taskQueue.offer(task);
+				Task temptask = (Task) task; 
+				maxWaitingTime = maxWaitingTime + temptask.getWait();
+			}
 		} else {
 			throw new RuntimeException("Cannot add tasks to a stopped manager");
 		}		
 	}	
 	
-	public void run() {
+	public synchronized void run() {
 		threadPool = new Thread[MAX_THREADS];
 		while(running) {
 			while(!taskQueue.isEmpty()) {
@@ -38,11 +51,11 @@ public class TaskManager implements Runnable {
 					launchTask(next, nextThreadAvailable);
 				}
 			}
-			if(taskCount == TOTAL_TASKS_TO_COMPLETE) {
+			if(taskCount >= TOTAL_TASKS_TO_COMPLETE) {
 				running = false;
 			}		
 		}
-		System.out.println("Task Manager thread finished - taskCount = " + taskCount);	
+//		System.out.println("Task Manager thread finished - taskCount = " + taskCount);	
 	}
 	
 	private synchronized int findAvailableThread() {
@@ -59,7 +72,6 @@ public class TaskManager implements Runnable {
 		Thread t = new Thread(wrappedTask);
 		this.threadPool[id] = t;
 		t.start();
-	
 	}
 	
 	
@@ -76,14 +88,17 @@ public class TaskManager implements Runnable {
 		}	
 	
 		@Override
-		public void run() {		
+		public synchronized void run() {		
 			try {
 				myTask.run();
 			} catch ( Exception ex) {
 				ex.printStackTrace();
 			}
-			taskManager.taskCount++;		
+			taskManager.taskCount++;
 			taskManager.threadPool[threadId] = null;
+			Task task = (Task) myTask; 
+			taskManager.maxWaitingTime = taskManager.maxWaitingTime - task.getWait();
+//			System.out.println("End > " + taskManager.maxWaitingTime);
 		}	
 	}
 }

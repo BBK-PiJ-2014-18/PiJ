@@ -14,6 +14,10 @@ public class SimpleExecutorImpl implements SimpleExecutor {
 	public void execute(Runnable task) {
 		manager.add(task);
 	}
+		
+	public int getMaxWaitingTime() {
+		return manager.getMaxWaitingTime();
+	}	
 	
 }
 

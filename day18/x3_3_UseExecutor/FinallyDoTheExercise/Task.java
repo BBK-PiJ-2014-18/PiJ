@@ -11,15 +11,18 @@ public class Task implements Runnable  {
 	}
 
 	public void run () {
-		System.out.println("Start  > U " + userID + ", T " + taskID + ", W" + wait + ".");
+		System.out.println("Start  > User " + userID + ", Task " + taskID + ".");
 		try {
 			Thread.sleep(wait);
 		} catch (InterruptedException ex) {
 			// do nothing
 		}
-		System.out.println("-- End > U " + userID + ", T " + taskID + ", W" + wait + ".");
-
+//		System.out.println("-- End > User " + userID + ", Task " + taskID +  ".");
 	}	
+	
+	public int getWait() {
+		return wait;
+	}
 
 	
 
