@@ -16,7 +16,7 @@ public class FingerServer extends UnicastRemoteObject implements FingerService {
 	public String usersReport() throws RemoteException {
 
 		String newline = System.getProperty("line.separator");
-		String result = newline + "=== Finger Service User Report  ==="; 
+		String result = newline + "==== Finger Service User Report  ===="; 
 		int i = 0;
 		for (User u: users){
 			if(u.getLoggedOn()) {
